@@ -25,9 +25,9 @@ def test_capitalize_positive(word, result):
 
 
 @pytest.mark.parametrize('word, result', [
-  ('skypro', 'skypro'),
-  ('Skypro', 'skypro'),
-  ('скайпро', 'скайпро'),
+  ('123abc', '123abc'),
+  ('!skypro', '!skypro'),
+  ('Skypro', 'Skypro'),
   ])
 def test_capitalize_negativ(word, result):
     string_utils = StringUtils()
@@ -56,14 +56,14 @@ def test_trim_positive(word, result):
 
 '''
 Тесты:
-1)Пробелы в начале строки не убираются
-2)Убираются не все пробелы в начале строки
+1)Строка без пробелов в начале должна остаться без изменений
+2)Строка с пробелами в конце не должна измениться
 '''
 
 
 @pytest.mark.parametrize('word, result', [
-  ('  skypro', '  skypro'),
-  ('  skypro', ' skypro')
+  ('skypro', 'skypro'),
+  ('skypro   ', 'skypro   ')
   ])
 def test_trim_negative(word, result):
     string_utils = StringUtils()
