@@ -1,0 +1,15 @@
+Баг№1
+Буква в верхнем регистре при проверке функции containts не находится в слове в нижнем регистре
+Шаги:
+1.Запустить тест
+@pytest.mark.parametrize('string, symbol', [
+    ('скайпро', 'С')
+    ])
+def test_contains_positive(string, symbol):
+    string_utils = StringUtils()
+    res = string_utils.contains(string, symbol)
+    assert res is True
+
+ОР Метод должен возвращать True
+ФР Метод возвращает False, а именно 'assert False is True'
+
