@@ -43,8 +43,8 @@ class TestProjects:
             f" Response: {response.text}"
         )
         response_json = response.json()
-        assert response_json("id") == project_id
-        assert response_json("title") == project_title
+        assert response_json["id"] == project_id
+        assert response_json["title"] == project_title
 
     def test_get_project_negative_invalid_id(self, api_client):
         invalid_id = "nonExistentUUID1234567890"

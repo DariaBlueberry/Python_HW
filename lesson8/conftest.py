@@ -68,7 +68,7 @@ def create_project(api_client, delete_project):
 
     for project_id in created_project_ids:
         try:
-            delete_response = delete_project(project_id)
+            delete_project(project_id)
             pass
         except Exception:
             pass
