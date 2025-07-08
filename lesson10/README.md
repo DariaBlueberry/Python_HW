@@ -21,3 +21,6 @@ Allure Commandline.
 Установите все необходимые библиотеки Python, выполнив следующую команду:
 
 pip install selenium pytest allure-pytest webdriver-manager
+
+pytest --alluredir=allure-results # запуск всех тестов
+allure serve allure-results # генерация отчета

@@ -8,16 +8,18 @@ class CalculatorPage:
     def __init__(self, driver: WebDriver):
         self.driver = driver
         self.delay_input = (By.ID, "delay")
-        self.button_7 = (By.ID, "n7")
-        self.button_plus = (By.ID, "plus")
-        self.button_8 = (By.ID, "n8")
-        self.button_equals = (By.ID, "equal")
+        self.button_7 = (By.XPATH, "//span[text()='7']")
+        self.button_plus = (By.XPATH, "//span[text()='+']")
+        self.button_8 = (By.XPATH, "//span[text()='8']")
+        self.button_equals = (By.XPATH, "//span[text()='=']")
         self.result_output = (By.ID, "result")
 
+    """Открывает страницу калькулятора."""
     def open(self):
         url = "https://bonigarcia.dev/selenium-webdriver-java/"
         self.driver.get(url + "slow-calculator.html")
 
+    """Устанавливает задержку перед выполнением расчетов."""
     def set_delay(self, delay: str):
         wait = WebDriverWait(self.driver, 10)
         delay_field = wait.until(
@@ -26,6 +28,7 @@ class CalculatorPage:
         delay_field.clear()
         delay_field.send_keys(delay)
 
+    """Нажимает на кнопку по заданному локатору"""
     def press_button(self, button_locator: tuple):
         wait = WebDriverWait(self.driver, 20)
         button = wait.until(
@@ -33,6 +36,7 @@ class CalculatorPage:
         )
         button.click()
 
+    """Получение результата"""
     def get_result(self, timeout: int = 10) -> str:
         wait = WebDriverWait(self.driver, timeout)
         result_element = wait.until(
